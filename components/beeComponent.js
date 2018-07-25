@@ -5,9 +5,9 @@
 * @author Laura Castillo <contact@laubits.com>
 * @version 1.0.0
 */
-class BeeComponent extends Component{
+class BeeComponent extends Component {
 
-	constructor(model, parent, dataManager) {
+  constructor(model, parent, dataManager) {
     super(model, parent, dataManager);
     this.container.className = 'beeComponent';
 
@@ -71,9 +71,9 @@ class BeeComponent extends Component{
     this.email.innerText = this.model.lng;
     this.phone.innerText = this.model.phone;
     this.city.innerText = this.model.website;
-//company?
+    //company?
 
-    this.posts.innerText = 'Posts:' + this.model.post.length;
+    this.posts.innerText = 'Posts:' + this.model.posts.length;
     this.photos.innerText = 'Photos:0'; //+ this.model.album.photos.length;
     this.todos.innerText = 'Todos:' + this.model.posts.length;
     this.postsBtn.innerHTML = 'POSTS';
@@ -83,7 +83,7 @@ class BeeComponent extends Component{
     this.postsBtn.onclick = this.postsBtnClick.bind(this);
 
     this.container.bee = this.model;
-	}
+  }
   postsBtnClick(e) {
     this.dataManager.setCurrentBee(this.model);
   }
