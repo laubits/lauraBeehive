@@ -25,8 +25,9 @@ class BeeComponent extends Component {
 
     this.phone = document.createElement('p');
     this.website = document.createElement('p');
-
-    //company name?
+    this.companyName = document.createElement('p');
+    this.catchPhrase = document.createElement('p');
+    this.bs = document.createElement('p');
     this.posts = document.createElement('p');
     this.photos = document.createElement('p');
     this.todos = document.createElement('p');
@@ -48,9 +49,9 @@ class BeeComponent extends Component {
     this.container.appendChild(this.lng);
     this.container.appendChild(this.phone);
     this.container.appendChild(this.website);
-
-    //company?
-
+    this.container.appendChild(this.companyName);
+    this.container.appendChild(this.catchPhrase);
+    this.container.appendChild(this.bs);
     this.container.appendChild(this.posts);
     this.container.appendChild(this.photos);
     this.container.appendChild(this.todos);
@@ -63,16 +64,17 @@ class BeeComponent extends Component {
     this.title.innerText = this.model.name;
     this.username.innerText = this.model.username;
     this.email.innerText = this.model.email;
-    this.email.innerText = this.model.street;
-    this.email.innerText = this.model.suite;
-    this.email.innerText = this.model.city;
-    this.email.innerText = this.model.zipcode;
-    this.email.innerText = this.model.lat;
-    this.email.innerText = this.model.lng;
+    this.street.innerText = this.model.street;
+    this.suite.innerText = this.model.suite;
+    this.city.innerText = this.model.city;
+    this.zipcode.innerText = this.model.zipcode;
+    this.lat.innerText = this.model.lat;
+    this.lng.innerText = this.model.lng;
     this.phone.innerText = this.model.phone;
-    this.city.innerText = this.model.website;
-    //company?
-
+    this.website.innerText = this.model.website;
+    this.companyName.innerText = this.model.companyName;
+    this.catchPhrase.innerText = this.model.catchPhrase;
+    this.bs.innerText = this.model.bs;
     this.posts.innerText = 'Posts:' + this.model.posts.length;
     this.photos.innerText = 'Photos:0'; //+ this.model.album.photos.length;
     this.todos.innerText = 'Todos:' + this.model.posts.length;
