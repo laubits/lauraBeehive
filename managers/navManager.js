@@ -11,6 +11,8 @@ class NavManager {
     this.dataManager = dataManager;
     this.beesComponent = document.getElementById('beesComponent');
     //Get container for bee posts, albums and todos
+    this.postsComponent = document.getElementById('postsComponent');
+    this.commentsComponent = document.getElementById('commentsComponent');
 
 	}
 
@@ -21,7 +23,16 @@ class NavManager {
   }
 
   showBeePost() {
+    this.dataManager.posts.forEach(post =>{
+      var postComponent = new PostComponent(post, this.postsComponent, this.dataManager);
+    });
 
+  }
+
+  showBeePostComment() {
+    this.dataManager.comments.forEach(comment =>{
+      var commentComponent = new CommentComponent(comment, this.commentsComponent, this.dataManager);
+    });
   }
 
   showBeeAlbum() {
@@ -29,6 +40,6 @@ class NavManager {
   }
 
   showBeeTodos() {
-    
+
   }
 }
