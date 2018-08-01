@@ -13,6 +13,7 @@ function init() {
 	var bees;
   var posts;
   var comments;
+  var albums;
   var dataManager = new DataManager();
   var navManager = new NavManager(dataManager);
 
@@ -20,10 +21,12 @@ function init() {
 	bees = [];
   posts= [];
   coments= [];
+  albums = [];
 	//Program Logic
 	requestUsersData();
   requestPostsData();
   requestCommentsData();
+  requestAlbumsData();
 	//'https://jsonplaceholder.typicode.com/todos'
 	//'https://jsonplaceholder.typicode.com/photos'
 	//'https://jsonplaceholder.typicode.com/albums'
@@ -148,6 +151,40 @@ function init() {
 		}
 
   }
+
+  function requestAlbumsData() {
+		var request = new XMLHttpRequest();
+		request.open('GET', 'https://jsonplaceholder.typicode.com/albums', true);
+		request.onreadystatechange = requestAlbumsDataCompleted;
+		request.send();
+	}
+
+	function requestAlbumsDataCompleted(e) {
+		var request = e.target;
+
+		if (request.readyState === XMLHttpRequest.DONE) {
+			if (request.status === 200) {
+
+				// console.log(request.responseText);
+				var data = JSON.parse(request.responseText);
+				// console.log(data);
+
+				for (var key in data) {
+					// console.log(data[key]);
+          var albumData = data[key];
+
+					var album = new Album(albumData.userId, albumData.id, albumData.title);
+					dataManager.albums.push(album);
+				}
+
+				navManager.showBeeAlbum();
+			}
+			else {
+				console.log('Server Error');
+			}
+		}
+	}
+
 
   function addPostByUserID(post) {
 

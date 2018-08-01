@@ -14,12 +14,12 @@ class DataManager {
     this.setCurrentPost = null;
     this.comments = [];
     this.setCurrentComment= null;
+    this.albums = [];
+    this.setCurrentalbum = null;
 
     this.user = new Bee(100, 'Laura Castillo', 'laubits','contact@laubits.com', new Address('Residencial Monserrat', 'concepcion','Tres Rios','1000/1000',new Geo(0.0, 0.0)),'(506)86211231', 'laubits.com', 'null');
     this.bees.push(this.user);
 
-    // this.post = new Post(userID, id, title, body, comments);
-    // this.posts.push(this.post);
 	}
 
   setCurrentBee(bee){
@@ -59,6 +59,11 @@ class DataManager {
   setCurrentComment(comment) {
     this.setCurrentComment = comment;
     console.log(this.setCurrentComment);
+  }
+
+  setCurrentAlbum(album) {
+    this.setCurrentAlbum = album;
+    console.log(this.setCurrentAlbum);
   }
 
 }
